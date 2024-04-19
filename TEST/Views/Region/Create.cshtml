@@ -1,0 +1,19 @@
+﻿@model TEST.Model.ViewModels.RegionViewModel
+@{
+    ViewBag.Title = "Create Region";
+}
+
+<h2>新增地區</h2>
+<div>
+    @using (Html.BeginForm("Create", "Region", FormMethod.Post))
+    {
+        <div class="form-group">
+            地區描述
+            @Html.TextBoxFor(model => model.RegionDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RegionDescription, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">保存</button>
+        <a href="@Url.Action("Index", "Region")" class="btn btn-default">返回</a>
+    }
+</div>

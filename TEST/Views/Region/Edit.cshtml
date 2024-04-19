@@ -1,0 +1,21 @@
+﻿@model TEST.Model.ViewModels.RegionViewModel
+@{
+    ViewBag.Title = "Edit Region";
+}
+
+<h2>編輯地區</h2>
+<div>
+    @using (Html.BeginForm("Edit", "Region", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.RegionID)
+
+        <div class="form-group">
+            地區描述
+            @Html.TextBoxFor(model => model.RegionDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RegionDescription, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">保存</button>
+        <a href="@Url.Action("Index", "Region")" class="btn btn-default">返回</a>
+    }
+</div>

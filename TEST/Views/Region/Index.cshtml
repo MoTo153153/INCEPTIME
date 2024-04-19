@@ -1,0 +1,69 @@
+﻿@model List<TEST.Model.ViewModels.RegionViewModel>
+@{
+    ViewBag.Title = "Region";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<h1>地區列表</h1>
+<div class="row">
+    <p><a href="@Url.Action("Create", "Region")">新增地區</a></p>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>地區描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.RegionID</td>
+                        <td>@item.RegionDescription</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Region", new { id = item.RegionID })">編輯</a>
+                            <a href="#" class="delete-link" data-region-id="@item.RegionID">刪除</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>查無資料。</p>
+    }
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('.delete-link').click(function (e) {
+                e.preventDefault();
+                var regionId = $(this).data('region-id');
+                if (confirm('確定要刪除這個產品嗎？')) {
+                    window.location.href = '@Url.Action("Delete", "Region")/' + regionId;
+                }
+            });
+        });
+    </script>
+}
