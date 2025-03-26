@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implements\IRegionService.cs" />
-    <Compile Include="Interfaces\RegionService.cs" />
+    <Compile Include="Interfaces\IRegionService.cs" />
+    <Compile Include="Implements\RegionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

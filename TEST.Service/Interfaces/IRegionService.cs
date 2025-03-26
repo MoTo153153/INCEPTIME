@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TEST.Model.ViewModels;
 
-namespace TEST.Service.Implements
+namespace TEST.Service.Interfaces
 {
     public interface IRegionService
     {

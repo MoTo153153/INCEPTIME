@@ -2,9 +2,9 @@
 using System.Linq;
 using TEST.Model;
 using TEST.Model.ViewModels;
-using TEST.Service.Implements;
+using TEST.Service.Interfaces;
 
-namespace TEST.Service.Interfaces
+namespace TEST.Service.Implements
 {
     public class RegionService : IRegionService
     {
